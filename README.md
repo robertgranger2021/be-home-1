@@ -12,7 +12,7 @@ We would like you to create a simple RESTful API service that will support an ap
  - [ ] Create a new invoice. Required fields w/ example:
 ```
   "customer_email": "john@test.com",
-  "customer_name": "Jonh Daly",
+  "customer_name": "John Daly",
   "description": "For services rendered",
   "due_date": "2022-02-10",
   "status": "draft","approved","sent", paid"
