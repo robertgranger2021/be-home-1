@@ -1,0 +1,11 @@
+**/build
+**/classes
+/.settings
+*.orig
+/.idea
+*.iml
+*.ipr
+*.ims
+.gradle/
+out/
+**/*.log

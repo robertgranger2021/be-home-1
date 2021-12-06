@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "customer_email": "rob@site.com",
+    "customer_name": "Robert Granger",
+    "description": "Bathroom renovation",
+    "due_date": "2021-12-15",
+    "status": "draft",
+    "total": 21025.88,
+    "line_items": [
+      {
+        "line_item_id": 1,
+        "line_item": "Demo existing bathroom",
+        "cost": 1500.00
+      },
+      {
+        "line_item_id": 2,
+        "line_item": "Replace sewer line",
+        "cost": 1500.00
+      },
+      {
+        "line_item_id": 3,
+        "line_item": "Replace toilet",
+        "cost": 500.00
+      },
+      {
+        "line_item_id": 4,
+        "line_item": "Replace bathtub",
+        "cost": 5000.00
+      },
+      {
+        "line_item_id": 5,
+        "line_item": "Replace vanity",
+        "cost": 1500.00
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "customer_email": "joe.blow@site.com",
+    "customer_name": "Joe Blow",
+    "description": "Sewer replacement",
+    "due_date": "2021-12-31",
+    "status": "draft",
+    "total": 19800.00,
+    "line_items": [
+      {
+        "line_item_id": 1,
+        "line_item": "Burst pipe replacement for sewer line from house to sidewalk",
+        "cost": 5000.00
+      },
+      {
+        "line_item_id": 2,
+        "line_item": "Reline sewer line from sidewalk to city main line",
+        "cost": 6500.00
+      },
+      {
+        "line_item_id": 3,
+        "line_item": "Replace house main sewer line",
+        "cost": 5500.00
+      },
+      {
+        "line_item_id": 4,
+        "line_item": "Replace all secondary lines to house main sewer line",
+        "cost": 2800.00
+      }
+    ]
+  }
+]
