@@ -40,27 +40,32 @@ public class InvoiceService {
         Optional<InvoiceModel> invoiceModel = invoiceRepo.findById(invoiceId);
         if (invoiceModel.isPresent()) {
             InvoiceModel updatedInvoiceModel = invoiceModel.get();
-            if (invoiceUpdateResource.getCustomerEmail() != null) {
-                updatedInvoiceModel.setCustomerEmail(invoiceUpdateResource.getCustomerEmail());
+            if (updatedInvoiceModel.getStatus() == InvoiceStatus.draft) {
+                if (invoiceUpdateResource.getCustomerEmail() != null) {
+                    updatedInvoiceModel.setCustomerEmail(invoiceUpdateResource.getCustomerEmail());
+                }
+                if (invoiceUpdateResource.getCustomerName() != null) {
+                    updatedInvoiceModel.setCustomerName(invoiceUpdateResource.getCustomerName());
+                }
+                if (invoiceUpdateResource.getDescription() != null) {
+                    updatedInvoiceModel.setDescription(invoiceUpdateResource.getDescription());
+                }
+                if (invoiceUpdateResource.getDueDate() != null) {
+                    updatedInvoiceModel.setDueDate(invoiceUpdateResource.getDueDate());
+                }
+                if (invoiceUpdateResource.getStatus() != null) {
+                    updatedInvoiceModel.setStatus(invoiceUpdateResource.getStatus());
+                }
+                if (invoiceUpdateResource.getTotal() != null) {
+                    updatedInvoiceModel.setTotal(invoiceUpdateResource.getTotal());
+                }
+                invoiceRepo.save(updatedInvoiceModel);
+                return invoiceId;
+            } else {
+                String exceptionMessage = String.format("Invoice %d is not in draft status. It cannot be updated.",
+                        updatedInvoiceModel.getInvoiceId());
+                throw new InvalidRequestException(exceptionMessage);
             }
-            if (invoiceUpdateResource.getCustomerName() != null) {
-                updatedInvoiceModel.setCustomerName(invoiceUpdateResource.getCustomerName());
-            }
-            if (invoiceUpdateResource.getDescription() != null) {
-                updatedInvoiceModel.setDescription(invoiceUpdateResource.getDescription());
-            }
-            if (invoiceUpdateResource.getDueDate() != null) {
-                updatedInvoiceModel.setDueDate(invoiceUpdateResource.getDueDate());
-            }
-            if (invoiceUpdateResource.getStatus() != null) {
-                updatedInvoiceModel.setStatus(invoiceUpdateResource.getStatus());
-            }
-            if (invoiceUpdateResource.getTotal() != null) {
-                updatedInvoiceModel.setTotal(invoiceUpdateResource.getTotal());
-            }
-            invoiceRepo.save(updatedInvoiceModel);
-
-            return invoiceId;
         } else {
             throw new InvalidInvoiceException(invoiceId);
         }
